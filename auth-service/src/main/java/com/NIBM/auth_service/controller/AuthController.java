@@ -14,6 +14,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Authentication Controller for Co-Doctor System
+ * Handles user registration and login with JWT token generation
+ */
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin
