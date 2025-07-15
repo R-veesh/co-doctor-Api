@@ -29,4 +29,20 @@ public class BookingService {
     public Optional<Booking> getBookingByCode(String code) {
         return bookingRepository.findByBookingCode(code);
     }
+
+    /**
+     * Updates the status of a booking
+     * @param bookingCode the unique booking code
+     * @param status the new status (PENDING, CONFIRMED, COMPLETED, CANCELLED)
+     * @return the updated booking if found
+     */
+    public Optional<Booking> updateBookingStatus(String bookingCode, String status) {
+        Optional<Booking> bookingOpt = bookingRepository.findByBookingCode(bookingCode);
+        if (bookingOpt.isPresent()) {
+            Booking booking = bookingOpt.get();
+            booking.setStatus(status);
+            return Optional.of(bookingRepository.save(booking));
+        }
+        return Optional.empty();
+    }
 }

@@ -62,4 +62,39 @@
    - Receptionist re-registers or finds previous record.
    - Doctor can see past prescriptions from History Service.
 
+## API Documentation
+
+### Auth Service (Port: 8083)
+- POST `/api/auth/login` - Authenticate user and get JWT token
+- POST `/api/auth/register` - Register new user
+
+### Booking Service (Port: 8081)
+- POST `/api/bookings/create` - Create new booking
+- GET `/api/bookings/status/{code}` - Get booking status
+- PUT `/api/bookings/update-status/{code}` - Update booking status
+
+### Doctor Service (Port: 8082)
+- POST `/api/doctors/register` - Register new doctor
+- GET `/api/doctors/all` - Get all doctors
+- GET `/api/doctors/{id}` - Get doctor by ID
+- GET `/api/doctors/specialization/{spec}` - Get doctors by specialization
+
+### Progress Service (Port: 8084)
+- POST `/api/progress/start` - Start progress tracking
+- POST `/api/progress/complete` - Mark progress as complete
+- GET `/api/progress/` - Get all progress records
+- GET `/api/progress/{bookingCode}` - Get progress by booking code
+
+### History Service (Port: 8085)
+- POST `/api/history/add` - Add medical history record
+- GET `/api/history/{patientCode}` - Get patient history
+
+## Database Configuration
+Each service uses its own MySQL database:
+- authServiceDB
+- bookingServiceDB
+- doctorServiceDB
+- progressServiceDB
+- historyServiceDB
+
 END SYSTEM

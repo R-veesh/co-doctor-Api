@@ -23,4 +23,9 @@ public class BookingController {
     public Optional<Booking> getStatus(@PathVariable String code) {
         return bookingService.getBookingByCode(code);
     }
+
+    @PutMapping("/update-status/{code}")
+    public Optional<Booking> updateStatus(@PathVariable String code, @RequestParam String status) {
+        return bookingService.updateBookingStatus(code, status);
+    }
 }
