@@ -40,4 +40,14 @@ public class DoctorController {
         service.deleteDoctor(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Doctor> update(@PathVariable Long id, @RequestBody Doctor doctor) {
+        Doctor existingDoctor = service.getDoctorById(id);
+        if (existingDoctor != null) {
+            doctor.setId(id);
+            return ResponseEntity.ok(service.saveDoctor(doctor));
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
