@@ -18,8 +18,11 @@ public class Booking {
     private String doctorId;
     private String bookingCode;
     private LocalDateTime bookingTime;
-    private String status; // PENDING, CONFIRMED, COMPLETED
+    private String status; // PENDING, CONFIRMED, COMPLETED, CANCELLED
 
-    // Getters and setters
+    /**
+     * Entity representing a patient booking in the Co-Doctor system.
+     * Contains patient information, doctor assignment, booking code, and status.
+     */
 
 }
